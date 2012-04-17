@@ -31,7 +31,12 @@ public class HelloJS extends Activity {
 
     private void addVersionStringsToLinearLayout(LinearLayout linearlayout) {
         TextView tv = new TextView(this);
-        tv.setText(Bindings.getLibVersions());
+
+        StringBuilder content = new StringBuilder();
+        content.append("Hello JavaScript, SpiderMonkey, Android!\n\n");
+        content.append(Bindings.getLibVersions());
+
+        tv.setText(content);
         linearlayout.addView(tv);
     }
 

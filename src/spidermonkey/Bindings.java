@@ -8,20 +8,19 @@ public class Bindings {
 
     public static StringBuilder getLibVersions() {
         StringBuilder content = new StringBuilder();
-        content.append("Hello JavaSscript, SpiderMonkey, Android!\n\n");
 
         try {
             content.append("SpiderMonkey JavaScript VM Version = " + getJSVMVersion() + "\n");
         } catch (Throwable t) {
             Log.d(LOGTAG, "Exception : " + t);
-            content.append("Error in SpiderMonkey JavaScript VM.\n");
+            content.append("Error obtaining SpiderMonkey JavaScript VM version information.\n");
         }
 
         try {
             content.append("Bindings Version = " + getBindingsVersion() + "\n");
         } catch (Throwable t) {
             Log.d(LOGTAG, "Exception : " + t);
-            content.append("Error in SpiderMonkey JavaScript bindings.\n");
+            content.append("Error obtaining SpiderMonkey JavaScript bindings version information.\n");
         }
 
         return content;
