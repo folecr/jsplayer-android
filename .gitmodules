@@ -1,0 +1,6 @@
+[submodule "submodules/cocos2d-x"]
+	path = submodules/cocos2d-x
+	url = git@github.com:folecr/cocos2d-x.git
+[submodule "submodules/mozilla-prebuilt"]
+	path = submodules/mozilla-prebuilt
+	url = git@github.com:folecr/mozilla-prebuilt.git
