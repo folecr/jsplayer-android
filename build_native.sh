@@ -16,15 +16,6 @@ OPTIONS:
 EOF
 }
 
-while getopts "s" OPTION; do
-	case "$OPTION" in
-		h)
-			usage
-			exit 0
-			;;
-	esac
-done
-
 # try to get global variable
 if [ $NDK_ROOT"aaa" != "aaa" ]; then
     NDK_ROOT_LOCAL=$NDK_ROOT
