@@ -30,6 +30,7 @@ EOF
 GAME_ROOT=$PWD
 MOZILLA_ROOT=$PWD/submodules/mozilla-prebuilt
 CXX_GENERATOR_ROOT=$PWD/submodules/cocos2d-x/js/cxx-generator
+COCOS2DX_ROOT=$PWD/submodules/cocos2d-x
 
 echo "GAME_ROOT: $GAME_ROOT"
 echo "MOZILLA_ROOT: $MOZILLA_ROOT"
@@ -65,5 +66,5 @@ set +x
 # build
 echo "Building native code..."
 $NDK_ROOT_LOCAL/ndk-build -C $GAME_ANDROID_ROOT \
-    NDK_MODULE_PATH=${GAME_ANDROID_ROOT}/jni:${MOZILLA_ROOT}:${CXX_GENERATOR_ROOT}
+    NDK_MODULE_PATH=${GAME_ANDROID_ROOT}/jni:${MOZILLA_ROOT}:${CXX_GENERATOR_ROOT}:${COCOS2DX_ROOT}:${COCOS2DX_ROOT}/cocos2dx/platform/third_party/android/prebuilt
 echo "... Building native code : Done."
