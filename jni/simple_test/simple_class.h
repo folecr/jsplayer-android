@@ -18,6 +18,11 @@ protected:
 	char* m_anotherMoreComplexField;
 
 public:
+    static const uint32_t OBJECT_TYPE = 0x777;
+    virtual uint32_t getObjectType() {
+        return SimpleNativeClass::OBJECT_TYPE;
+    };
+
     SimpleNativeClass();
 	SimpleNativeClass(int m) : m_someField(m) {};
 	SimpleNativeClass(int m1, int m2) : m_someField(m1), m_someOtherField(m2) {};
@@ -30,7 +35,7 @@ public:
 	int getSomeOtherField() {
 		return m_someOtherField;
 	}
-	char *getAnotherMoreComplexField() {
+	const char *getAnotherMoreComplexField() {
 		return m_anotherMoreComplexField;
 	}
 	void setSomeField(int f) {
@@ -48,11 +53,11 @@ public:
 
 	static void func();
 	static void func(int a);
-	static void func(float b);
+	static void func(int a, float b);
 
-	void receivesLongLong(long long someId);
+	long long receivesLongLong(long long someId);
 	std::string returnsAString();
-	char *returnsACString();
+	const char *returnsACString();
 
 	int doSomeProcessing(std::string arg1, std::string arg2);
 };
@@ -63,6 +68,10 @@ protected:
 	int justOneField;
 
 public:
+    static const uint32_t OBJECT_TYPE = 0x778;
+    virtual uint32_t getObjectType() {
+        return AnotherClass::OBJECT_TYPE;
+    };
 	int aPublicField;
 
 	AnotherClass();

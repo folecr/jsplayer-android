@@ -23,8 +23,17 @@ long long SimpleNativeClass::thisReturnsALongLong() {
 	return __id++;
 }
 
-void SimpleNativeClass::receivesLongLong(long long someId) {
-	return;
+void SimpleNativeClass::func() {
+}
+
+void SimpleNativeClass::func(int a) {
+}
+
+void SimpleNativeClass::func(int a, float b) {
+}
+
+long long SimpleNativeClass::receivesLongLong(long long someId) {
+	return someId + 1;
 }
 
 std::string SimpleNativeClass::returnsAString() {
@@ -32,7 +41,7 @@ std::string SimpleNativeClass::returnsAString() {
 	return myString;
 }
 
-char *SimpleNativeClass::returnsACString() {
+const char *SimpleNativeClass::returnsACString() {
 	return "this is a c-string";
 }
 
