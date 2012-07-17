@@ -1,4 +1,4 @@
-package com.example.spidermonkey.hellojs;
+package org.cocos.jsplayerdevtool;
 
 import android.app.ListActivity;
 import android.os.Bundle;

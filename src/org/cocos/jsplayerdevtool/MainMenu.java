@@ -1,4 +1,4 @@
-package com.example.spidermonkey.hellojs;
+package org.cocos.jsplayerdevtool;
 
 import android.app.Activity;
 import android.content.res.AssetManager;
@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import spidermonkey.Bindings;
 
-public class HelloJS extends Activity {
-    static private final String LOGTAG = "HelloJS";
+public class MainMenu extends Activity {
+    static private final String LOGTAG = "org.cocos.jsplayerdevtool.MainMenu";
 
     /** Called when the activity is first created. */
     @Override
@@ -21,10 +21,10 @@ public class HelloJS extends Activity {
 
         Log.d(LOGTAG, "onCreate");
 
-        setContentView(spidermonkey.hellojs.R.layout.mainmenu);
+        setContentView(org.cocos.jsplayerdevtool.R.layout.mainmenu);
 
         LinearLayout linearlayout =
-            (LinearLayout) findViewById(spidermonkey.hellojs.R.id.text_content);
+            (LinearLayout) findViewById(org.cocos.jsplayerdevtool.R.id.text_content);
 
         addVersionStringsToLinearLayout(linearlayout);
     }
@@ -33,7 +33,7 @@ public class HelloJS extends Activity {
         TextView tv = new TextView(this);
 
         StringBuilder content = new StringBuilder();
-        content.append("Hello JavaScript, SpiderMonkey, Android!\n\n");
+        content.append("JavaScript, SpiderMonkey, cocos2d-x, C++ auto generated bindings, Android!\n\n");
         content.append(Bindings.getLibVersions());
 
         tv.setText(content);
@@ -47,6 +47,6 @@ public class HelloJS extends Activity {
     }
 
     static {
-        System.loadLibrary("game");
+        System.loadLibrary("jsplayer");
     }
 }
