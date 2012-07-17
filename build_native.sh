@@ -51,17 +51,17 @@ popd
 pwd
 set +x
 
-# Generate bindings for cocosdenshion
-echo "Generating bindings..."
-echo "change directory to the generator to run it..."
-set -x
-pwd
-pushd $PWD
-cd ${CXX_GENERATOR_ROOT}
-DYLD_LIBRARY_PATH=${CLANG_ROOT_LOCAL}/lib /opt/local/bin/python2.7 ${CXX_GENERATOR_ROOT}/generator.py ${GAME_ANDROID_ROOT}/cocosdenshion.ini -s cocosdenshion -o ${GAME_ANDROID_ROOT}/jni/cocosdenshion_bindings
-popd
-pwd
-set +x
+# # Generate bindings for cocosdenshion
+# echo "Generating bindings..."
+# echo "change directory to the generator to run it..."
+# set -x
+# pwd
+# pushd $PWD
+# cd ${CXX_GENERATOR_ROOT}
+# DYLD_LIBRARY_PATH=${CLANG_ROOT_LOCAL}/lib /opt/local/bin/python2.7 ${CXX_GENERATOR_ROOT}/generator.py ${GAME_ANDROID_ROOT}/cocosdenshion.ini -s cocosdenshion -o ${GAME_ANDROID_ROOT}/jni/cocosdenshion_bindings
+# popd
+# pwd
+# set +x
 
 # build
 echo "Building native code..."
