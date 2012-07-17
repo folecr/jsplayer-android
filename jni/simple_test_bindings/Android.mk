@@ -14,6 +14,7 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
 
 LOCAL_WHOLE_STATIC_LIBRARIES := spidermonkey_static
 LOCAL_WHOLE_STATIC_LIBRARIES += scriptingcore-spidermonkey
+LOCAL_WHOLE_STATIC_LIBRARIES += simpletest
 
 LOCAL_LDLIBS := -landroid
 LOCAL_LDLIBS += -llog
