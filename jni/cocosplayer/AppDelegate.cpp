@@ -33,6 +33,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // CocosDenshion bindings
     register_all_autogencocosdenshionbindings();
+    register_all_autogencocos2dxbindings();
 
     //    const char* content = "\'Hello\'+\'World\'";
     const char* content = "\

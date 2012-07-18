@@ -17,6 +17,7 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
 LOCAL_WHOLE_STATIC_LIBRARIES := spidermonkey_static
 LOCAL_WHOLE_STATIC_LIBRARIES += scriptingcore-spidermonkey
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static
+LOCAL_WHOLE_STATIC_LIBRARIES += autogencocos2dxbindings
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 LOCAL_WHOLE_STATIC_LIBRARIES += autogencocosdenshionbindings
 
@@ -28,5 +29,6 @@ include $(BUILD_STATIC_LIBRARY)
 $(call import-module,spidermonkey/android)
 $(call import-module,targets/spidermonkey/common)
 $(call import-module,cocos2dx)
+$(call import-module,cocos2dx_bindings)
 $(call import-module,CocosDenshion/android)
 $(call import-module,cocosdenshion_bindings)
