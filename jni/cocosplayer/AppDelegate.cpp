@@ -2,6 +2,8 @@
 #include <Player.h>
 #include <ScriptingCore.h>
 #include <autogencocosdenshionbindings.hpp>
+#include <autogencocos2dxbindings.hpp>
+#include <platform/CCFileUtils.h>
 
 USING_NS_CC;
 
