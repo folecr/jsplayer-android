@@ -13,9 +13,10 @@ LOCAL_WHOLE_STATIC_LIBRARIES += scriptingcore-spidermonkey
 LOCAL_WHOLE_STATIC_LIBRARIES += simpletest
 LOCAL_WHOLE_STATIC_LIBRARIES += autogentestbindings
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static
+LOCAL_WHOLE_STATIC_LIBRARIES += autogencocos2dxbindings
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 LOCAL_WHOLE_STATIC_LIBRARIES += autogencocosdenshionbindings
-LOCAL_WHOLE_STATIC_LIBRARIES += libcocosplayer
+LOCAL_WHOLE_STATIC_LIBRARIES += cocosplayer
 
 LOCAL_LDLIBS := -landroid
 LOCAL_LDLIBS += -llog
@@ -26,6 +27,7 @@ $(call import-module,jsbindings)
 $(call import-module,simple_test)
 $(call import-module,simple_test_bindings)
 $(call import-module,cocos2dx)
+$(call import-module,cocos2dx_bindings)
 $(call import-module,CocosDenshion/android)
 $(call import-module,cocosdenshion_bindings)
 $(call import-module,targets/spidermonkey/common)
