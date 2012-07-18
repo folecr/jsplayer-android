@@ -22,6 +22,15 @@
         <activity android:name=".AssetsScripts"
                   android:label="@string/assets_js"
                   android:configChanges="orientation" />
+
+        <activity android:name="org.cocos.jsplayer.JSPlayer"
+                  android:label="Direct Launch JSPlayer"
+                  android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
     <supports-screens android:largeScreens="true"

@@ -1,5 +1,6 @@
 #include <AppDelegate.h>
 #include <Player.h>
+#include <ScriptingCore.h>
 
 USING_NS_CC;
 
@@ -29,8 +30,16 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // create a scene. it's an autorelease object
     CCScene *pScene = Player::scene();
 
+    //    const char* content = "\'Hello\'+\'World\'";
+    const char* content = "\
+var audioEngine = cc.SimpleAudioEngine.sharedEngine();\
+audioEngine.setBackgroundMusicVolume(0.5);\
+audioEngine.playBackgroundMusic(\'bgmusic.mp3\', true);";
+
+    ScriptingCore::getInstance().evalString(content, NULL);
+
     // run
-    pDirector->runWithScene(pScene);
+    // pDirector->runWithScene(pScene);
 
     return true;
 }
