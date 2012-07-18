@@ -81,6 +81,9 @@ public class JSPlayer extends Cocos2dxActivity{
 	 }
 	
      static {
-         System.loadLibrary("jsplayer");
+         // Currently launched in the same process as the devtool
+         // ... which already loads the library
+         // ... so this is commented out for now
+         // System.loadLibrary("jsplayer");
      }
 }
