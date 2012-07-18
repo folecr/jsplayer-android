@@ -1,6 +1,5 @@
 #include <jni.h>
 #include <android/log.h>
-#include <JNI_spidermonkey_bindings.h>
 #include <AppDelegate.h>
 #include <platform/android/jni/JniHelper.h>
 
@@ -15,9 +14,6 @@ jint JNI_OnLoad (JavaVM *vm, void *reserved) {
 
     JNIEnv* env;
     vm->GetEnv((void**)&env, JNI_VERSION_1_4);
-
-    // SpiderMonkey bindings (without Cocos)
-    JNI_spidermonkey_bindings::registernatives(env);
 
     // Cocos2D-X
     cocos2d::JniHelper::setJavaVM(vm);

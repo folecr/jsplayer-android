@@ -1,6 +1,7 @@
 #include <AppDelegate.h>
 #include <Player.h>
 #include <ScriptingCore.h>
+#include <autogencocosdenshionbindings.hpp>
 
 USING_NS_CC;
 
@@ -29,6 +30,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     CCScene *pScene = Player::scene();
+
+    // CocosDenshion bindings
+    register_all_autogencocosdenshionbindings();
 
     //    const char* content = "\'Hello\'+\'World\'";
     const char* content = "\
