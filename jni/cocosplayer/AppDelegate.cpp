@@ -5,6 +5,11 @@
 #include <autogencocos2dxbindings.hpp>
 #include <platform/CCFileUtils.h>
 
+#include <android/log.h>
+
+#define  LOG_TAG    "AppDelegate.cpp"
+#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -37,13 +42,20 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_autogencocosdenshionbindings();
     register_all_autogencocos2dxbindings();
 
-    //    const char* content = "\'Hello\'+\'World\'";
-    const char* content = "\
-var audioEngine = cc.SimpleAudioEngine.sharedEngine();\
-audioEngine.setBackgroundMusicVolume(0.5);\
-audioEngine.playBackgroundMusic(\'bgmusic.mp3\', true);";
+    unsigned long size = 0;
+    unsigned char* content =
+        CCFileUtils::sharedFileUtils()->getFileData("js/sample.js",
+                                                    "rb",
+                                                    &size);
 
-    ScriptingCore::getInstance().evalString(content, NULL);
+    LOGD("size = %d", size);
+    if (content) {
+        LOGD("content = %s", content);
+
+        ScriptingCore::getInstance().evalString((const char*)content, NULL);
+    } else {
+        LOGD("FAIL : content is NULL");
+    }
 
     // run
     // pDirector->runWithScene(pScene);
