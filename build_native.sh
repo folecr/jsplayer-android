@@ -63,6 +63,18 @@ popd
 pwd
 set +x
 
+# Generate bindings for cocos2dx
+echo "Generating bindings..."
+echo "change directory to the generator to run it..."
+set -x
+pwd
+pushd $PWD
+cd ${CXX_GENERATOR_ROOT}
+DYLD_LIBRARY_PATH=${CLANG_ROOT_LOCAL}/lib /opt/local/bin/python2.7 ${CXX_GENERATOR_ROOT}/generator.py ${APP_ANDROID_ROOT}/cocos2dx.ini -s cocos2d-x -o ${APP_ANDROID_ROOT}/jni/cocos2dx_bindings
+popd
+pwd
+set +x
+
 # build
 echo "Building native code..."
 $NDK_ROOT_LOCAL/ndk-build -C $APP_ANDROID_ROOT \
