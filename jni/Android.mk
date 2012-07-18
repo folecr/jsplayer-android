@@ -15,6 +15,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += autogentestbindings
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 LOCAL_WHOLE_STATIC_LIBRARIES += autogencocosdenshionbindings
+LOCAL_WHOLE_STATIC_LIBRARIES += libcocosplayer
 
 LOCAL_LDLIBS := -landroid
 LOCAL_LDLIBS += -llog
@@ -28,3 +29,4 @@ $(call import-module,cocos2dx)
 $(call import-module,CocosDenshion/android)
 $(call import-module,cocosdenshion_bindings)
 $(call import-module,targets/spidermonkey/common)
+$(call import-module,cocosplayer)

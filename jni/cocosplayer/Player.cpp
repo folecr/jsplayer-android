@@ -1,14 +1,14 @@
-#include "HelloWorldScene.h"
+#include <Player.h>
 
 USING_NS_CC;
 
-CCScene* HelloWorld::scene()
+CCScene* Player::scene()
 {
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
     
     // 'layer' is an autorelease object
-    HelloWorld *layer = HelloWorld::create();
+    Player *layer = Player::create();
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -18,7 +18,7 @@ CCScene* HelloWorld::scene()
 }
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init()
+bool Player::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -36,7 +36,7 @@ bool HelloWorld::init()
                                         "CloseNormal.png",
                                         "CloseSelected.png",
                                         this,
-                                        menu_selector(HelloWorld::menuCloseCallback) );
+                                        menu_selector(Player::menuCloseCallback) );
     pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
 
     // create menu, it's an autorelease object
@@ -71,7 +71,7 @@ bool HelloWorld::init()
     return true;
 }
 
-void HelloWorld::menuCloseCallback(CCObject* pSender)
+void Player::menuCloseCallback(CCObject* pSender)
 {
     CCDirector::sharedDirector()->end();
 

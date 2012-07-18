@@ -1,9 +1,9 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef __PLAYER_H__
+#define __PLAYER_H__
 
-#include "cocos2d.h"
+#include <cocos2d.h>
 
-class HelloWorld : public cocos2d::CCLayer
+class Player : public cocos2d::CCLayer
 {
 public:
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
@@ -16,7 +16,7 @@ public:
     void menuCloseCallback(CCObject* pSender);
 
     // implement the "static node()" method manually
-    LAYER_CREATE_FUNC(HelloWorld);
+    LAYER_CREATE_FUNC(Player);
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __PLAYER_H__
