@@ -12,7 +12,8 @@
         <activity android:name=".MainMenu"
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-                  android:configChanges="orientation">
+                  android:configChanges="orientation"
+                  android:taskAffinity="org.cocos.jsplayerdevtool">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,7 +26,8 @@
 
         <activity android:name="org.cocos.jsplayer.JSPlayer"
                   android:label="Direct Launch JSPlayer"
-                  android:configChanges="orientation">
+                  android:configChanges="orientation"
+                  android:taskAffinity="org.cocos.jsplayer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
