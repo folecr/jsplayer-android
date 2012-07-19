@@ -52,7 +52,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     if (content) {
         LOGD("content = %s", content);
 
-        ScriptingCore::getInstance().evalString((const char*)content, NULL);
+        ScriptingCore::getInstance()->evalString((const char*)content, NULL);
     } else {
         LOGD("FAIL : content is NULL");
     }
