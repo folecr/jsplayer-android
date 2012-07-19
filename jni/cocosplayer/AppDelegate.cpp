@@ -44,7 +44,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     unsigned long size = 0;
     unsigned char* content =
-        CCFileUtils::sharedFileUtils()->getFileData("js/sample.js",
+        CCFileUtils::sharedFileUtils()->getFileData("javascript-spidermonkey/main.js",
                                                     "rb",
                                                     &size);
 
