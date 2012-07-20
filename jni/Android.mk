@@ -18,6 +18,8 @@ LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 LOCAL_WHOLE_STATIC_LIBRARIES += autogencocosdenshionbindings
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosplayer
 
+LOCAL_CFLAGS : = COCOS2D_JAVASCRIPT
+
 LOCAL_LDLIBS := -landroid
 LOCAL_LDLIBS += -llog
 
