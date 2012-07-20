@@ -6,11 +6,11 @@
 // Javascript + CocosDenshion tests
 //
 //
-require("javascript-spidermonkey/helper.js");
+require("javascript-spidermonkey/helperx.js");
 
-var director = cc.Director.getInstance();
+var director = cc.Director.sharedDirector();
 var audioEngine = cc.AudioEngine.getInstance();
-var _winSize = director.winSize();
+var _winSize = director.getWinSize();
 var winSize = {width:_winSize[0], height:_winSize[1]};
 var centerPos = cc.p( winSize.width/2, winSize.height/2 );
 

@@ -6,10 +6,10 @@
 // Javascript + cocos2d actions tests
 //
 
-require("javascript-spidermonkey/helper.js");
+require("javascript-spidermonkey/helperx.js");
 
-var director = cc.Director.getInstance();
-var _winSize = director.winSize();
+var director = cc.Director.sharedDirector();
+var _winSize = director.getWinSize();
 var winSize = {width:_winSize[0], height:_winSize[1]};
 var centerPos = cc.p( winSize.width/2, winSize.height/2 );
 var spriteFrameCache = cc.SpriteFrameCache.getInstance();
@@ -41,7 +41,7 @@ var restartScene = function () {
 
 var loadScene = function (sceneIdx)
 {
-	_winSize = director.winSize();
+	_winSize = director.getWinSize();
 	winSize = {width:_winSize[0], height:_winSize[1]};
 	centerPos = cc.p( winSize.width/2, winSize.height/2 );
 

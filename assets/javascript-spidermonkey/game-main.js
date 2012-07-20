@@ -11,11 +11,11 @@
 //
 
 
-require("javascript-spidermonkey/helper.js");
+require("javascript-spidermonkey/helperx.js");
 
 audioEngine = cc.AudioEngine.getInstance();
-director = cc.Director.getInstance();
-_winSize = director.winSize();
+director = cc.Director.sharedDirector();
+_winSize = director.getWinSize();
 winSize = {width:_winSize[0], height:_winSize[1]};
 centerPos = cc.p( winSize.width/2, winSize.height/2 );
 
@@ -477,7 +477,7 @@ var MainMenu = cc.Layer.extend({
 function run()
 {
     // update globals
-    _winSize = director.winSize();
+    _winSize = director.getWinSize();
     winSize = {width:_winSize[0], height:_winSize[1]};
     centerPos = cc.p( winSize.width/2, winSize.height/2 );
 
