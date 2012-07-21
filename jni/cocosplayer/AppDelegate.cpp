@@ -42,20 +42,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_autogencocosdenshionbindings();
     register_all_autogencocos2dxbindings();
 
-    unsigned long size = 0;
-    unsigned char* content =
-        CCFileUtils::sharedFileUtils()->getFileData("javascript-spidermonkey/main.js",
-                                                    "rb",
-                                                    &size);
-
-    LOGD("size = %d", size);
-    if (content) {
-        LOGD("content = %s", content);
-
-        ScriptingCore::getInstance()->evalString((const char*)content, NULL);
-    } else {
-        LOGD("FAIL : content is NULL");
-    }
+    ScriptingCore::getInstance()->runScript("javascript-spidermonkey/main.js");
 
     // run
     // pDirector->runWithScene(pScene);
