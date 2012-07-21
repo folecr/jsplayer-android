@@ -4,6 +4,7 @@
 #include <autogencocosdenshionbindings.hpp>
 #include <autogencocos2dxbindings.hpp>
 #include <platform/CCFileUtils.h>
+#include <cocos2d_specifics.hpp>
 
 #include <android/log.h>
 
@@ -38,9 +39,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // create a scene. it's an autorelease object
     CCScene *pScene = Player::scene();
 
-    // CocosDenshion bindings
+    // register bindings
     register_all_autogencocosdenshionbindings();
     register_all_autogencocos2dxbindings();
+    register_cocos2dx_js_extensions();
 
     ScriptingCore::getInstance()->runScript("javascript-spidermonkey/main.js");
 
