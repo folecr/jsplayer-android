@@ -44,7 +44,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_autogencocos2dxbindings();
     register_cocos2dx_js_extensions();
 
+    CCScriptEngineManager::sharedManager()->setScriptEngine(ScriptingCore::getInstance());
     ScriptingCore::getInstance()->runScript("javascript-spidermonkey/main.js");
+
 
     // run
     // pDirector->runWithScene(pScene);
