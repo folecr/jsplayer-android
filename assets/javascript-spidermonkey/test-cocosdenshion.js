@@ -8,7 +8,7 @@
 //
 require("javascript-spidermonkey/helperx.js");
 
-var director = cc.Director.sharedDirector();
+var director = cc.Director.getInstance();
 var audioEngine = cc.AudioEngine.getInstance();
 var _winSize = director.getWinSize();
 var winSize = {width:_winSize[0], height:_winSize[1]};

@@ -161,7 +161,7 @@ cc.size_get_height = function (size )
 
 cc.Touch.prototype.getLocation = function () {
     var pt = this.locationInView();
-    return cc.Director.sharedDirector().convertToGL(pt);
+    return cc.Director.getInstance().convertToGL(pt);
 };
 
 cc.Touch.prototype.getDelta = function () {
