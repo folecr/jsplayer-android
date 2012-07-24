@@ -170,7 +170,7 @@ CocosDenshionTest = cc.LayerGradient.extend({
         // Back button
         var itemBack = cc.MenuItemFont.create("back", this, function() { require("javascript-spidermonkey/main.js"); } );
         itemBack.setPosition( cc.p(winSize.width - 60, winSize.height - 30 ) );
-        itemBack.setFontSize( 22 );
+        // itemBack.setFontSize( 22 );
         var menuBack = cc.Menu.create( itemBack );
         menuBack.setPosition( cc.p(0,0) );
         this.addChild( menuBack, 10 );
