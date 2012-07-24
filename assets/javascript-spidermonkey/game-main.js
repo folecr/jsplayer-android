@@ -13,7 +13,7 @@
 
 require("javascript-spidermonkey/helperx.js");
 
-audioEngine = cc.AudioEngine.getInstance();
+audioEngine = cc.SimpleAudioEngine.getInstance();
 director = cc.Director.getInstance();
 _winSize = director.getWinSize();
 winSize = {width:_winSize[0], height:_winSize[1]};

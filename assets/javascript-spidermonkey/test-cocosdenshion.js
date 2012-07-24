@@ -9,7 +9,7 @@
 require("javascript-spidermonkey/helperx.js");
 
 var director = cc.Director.getInstance();
-var audioEngine = cc.AudioEngine.getInstance();
+var audioEngine = cc.SimpleAudioEngine.getInstance();
 var _winSize = director.getWinSize();
 var winSize = {width:_winSize[0], height:_winSize[1]};
 var centerPos = cc.p( winSize.width/2, winSize.height/2 );
