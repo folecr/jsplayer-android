@@ -1147,7 +1147,7 @@ function run()
     if( runningScene == null )
         director.runWithScene( scene );
     else
-        director.replaceScene( cc.TransitionFade.create(0.5, scene ) );
+        director.replaceScene( cc.TransitionFade.create(0.5, scene, cc.c3(0, 0, 0)) );
 }
 
 run();
