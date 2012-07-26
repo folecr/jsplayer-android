@@ -2,7 +2,7 @@
 #include <Player.h>
 #include <ScriptingCore.h>
 #include <autogencocosdenshionbindings.hpp>
-#include <autogencocos2dxbindings.hpp>
+#include <cocos2dx.hpp>
 #include <platform/CCFileUtils.h>
 #include <cocos2d_specifics.hpp>
 
@@ -41,7 +41,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // register bindings
     register_all_autogencocosdenshionbindings();
-    register_all_autogencocos2dxbindings();
+    register_all_cocos2dx();
     register_cocos2dx_js_extensions();
 
     CCScriptEngineManager::sharedManager()->setScriptEngine(ScriptingCore::getInstance());

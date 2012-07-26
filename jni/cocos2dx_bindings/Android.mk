@@ -6,7 +6,7 @@ LOCAL_MODULE := autogencocos2dxbindings
 
 LOCAL_MODULE_FILENAME := libautogencocos2dxbindings
 
-LOCAL_SRC_FILES := autogencocos2dxbindings.cpp
+LOCAL_SRC_FILES := cocos2dx.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)
 

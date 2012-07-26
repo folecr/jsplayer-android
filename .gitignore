@@ -10,3 +10,5 @@ jni/simple_test_bindings/autogentestbindings.cpp
 jni/simple_test_bindings/autogentestbindings.hpp
 jni/cocos2dx_bindings/autogencocos2dxbindings.cpp
 jni/cocos2dx_bindings/autogencocos2dxbindings.hpp
+jni/cocos2dx_bindings/cocos2dx.cpp
+jni/cocos2dx_bindings/cocos2dx.hpp
