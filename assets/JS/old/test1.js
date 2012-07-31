@@ -6,15 +6,15 @@
 // Javascript + CocosDenshion tests
 //
 //
-require("javascript-spidermonkey/helperx.js");
+require("JS/helpers.js");
 
-var director = cc.Director.getInstance();
-var audioEngine = cc.SimpleAudioEngine.getInstance();
+var director = cc.Director.sharedDirector();
+var audioEngine = cc.SimpleAudioEngine.sharedEngine();
 var _winSize = director.getWinSize();
 var winSize = {width:_winSize[0], height:_winSize[1]};
 var centerPos = cc.p( winSize.width/2, winSize.height/2 );
 
-var MUSIC_FILE = "Cyber Advance!.mp3";
+var MUSIC_FILE = "bgmusic.mp3";
 var EFFECT_FILE = "cowbell.wav";
 
 var DenshionTests = [
@@ -150,13 +150,14 @@ CocosDenshionTest = cc.LayerGradient.extend({
         var parent = new cc.LayerGradient();
         __associateObjWithNative(this, parent);
         this.init(cc.c4(0, 0, 0, 255), cc.c4(0, 128, 255, 255));
+        this.setTouchEnabled(true);
 
         // add menu items for tests
         this._menu = cc.Menu.create();
         var s = winSize;
         for (var i = 0; i < DenshionTests.length; i++) {
             var label = cc.LabelTTF.create(DenshionTests[i].title, "Arial", 20);
-            var menuItem = cc.MenuItemLabel.create(label, this, this.menuCallback);
+            var menuItem = cc.MenuItemLabel.create(label, this.menuCallback);
             this._menu.addChild(menuItem, i + 10000);
         }
         this._menu.setPosition(cc.p(winSize.width/2, winSize.height/2) );
@@ -168,13 +169,19 @@ CocosDenshionTest = cc.LayerGradient.extend({
         audioEngine.setBackgroundMusicVolume(0.5);
 
         // Back button
-        var itemBack = cc.MenuItemFont.create("back", this, function() { require("javascript-spidermonkey/main.js"); } );
+        var itemBack = cc.MenuItemFont.create("back", function() { require("JS/main.js"); } );
         itemBack.setPosition( cc.p(winSize.width - 60, winSize.height - 30 ) );
-        // itemBack.setFontSize( 22 );
-        var menuBack = cc.Menu.create( itemBack );
+        itemBack.setFontSizeObj( 22 );
+        var menuBack = cc.Menu.create();
+        menuBack.addChild(itemBack);
         menuBack.setPosition( cc.p(0,0) );
         this.addChild( menuBack, 10 );
-
+    },
+    ccTouchBegan: function (touch) {
+        cc.log("touch: " + touch[0] + ": " + Date.now());
+    },
+    ccTouchMoved: function (touch) {
+        cc.log("touch moved: " + touch[0] + ": " + Date.now());
     },
     menuCallback:function (sender) {
         var idx = sender.getZOrder() - 10000;
@@ -223,7 +230,7 @@ var isBackgroundMusicPlaying = function () {
 
 var playEffect = function () {
     cc.log("play effect");
-    soundId = audioEngine.playEffect(EFFECT_FILE);
+    soundId = audioEngine.playEffect(EFFECT_FILE, false);
 };
 
 var playEffectRepeatly = function () {
@@ -304,4 +311,3 @@ function run()
 }
 
 run();
-

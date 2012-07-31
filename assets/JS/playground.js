@@ -6,12 +6,12 @@
 // Javascript + cocos2d actions tests
 //
 
-require("javascript-spidermonkey/helperx.js");
+require("javascript-spidermonkey/helper.js");
 
-var director = cc.Director.getInstance();
-var _winSize = director.getWinSize();
-var winSize = {width:_winSize[0], height:_winSize[1]};
-var centerPos = cc.p( winSize.width/2, winSize.height/2 );
+director = cc.Director.getInstance();
+_winSize = director.getWinSize();
+winSize = {width:_winSize[0], height:_winSize[1]};
+centerPos = cc.p( winSize.width/2, winSize.height/2 );
 
 var scenes = []
 var currentScene = 0;
@@ -127,7 +127,7 @@ var BaseLayer = cc.LayerGradient.extend({
         var item2 = cc.MenuItemImage.create("r1.png", "r2.png", this, this.restartCallback);
         var item3 = cc.MenuItemImage.create("f1.png", "f2.png", this, this.nextCallback);
         var item4 = cc.MenuItemFont.create("back", this, function() { require("javascript-spidermonkey/main.js"); } );
-        // item4.setFontSize( 22 );
+        item4.setFontSize( 22 );
 
         var menu = cc.Menu.create(item1, item2, item3, item4 );
 
@@ -197,7 +197,7 @@ function run()
     if( runningScene == null )
         director.runWithScene( scene );
     else
-        director.replaceScene( cc.TransitionFade.create(0.5, scene, cc.c3(0, 0, 0)) );
+        director.replaceScene( cc.TransitionFade.create(0.5, scene ) );
 }
 
 run();

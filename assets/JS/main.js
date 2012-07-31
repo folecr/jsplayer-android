@@ -6,17 +6,17 @@
 // Javascript + cocos2d actions tests
 //
 
-require("javascript-spidermonkey/helperx.js");
+require("JS/helper.js");
 
-var director = cc.Director.getInstance();
-var _winSize = director.getWinSize();
-var winSize = {width:_winSize[0], height:_winSize[1]};
-var centerPos = cc.p( winSize.width/2, winSize.height/2 );
+director = cc.Director.getInstance();
+_winSize = director.getWinSize();
+winSize = {width:_winSize[0], height:_winSize[1]};
+centerPos = cc.p( winSize.width/2, winSize.height/2 );
 
-var scenes = []
-var currentScene = 0;
+scenes = []
+currentScene = 0;
 
-var nextScene = function () {
+nextScene = function () {
 	currentScene = currentScene + 1;
 	if( currentScene >= scenes.length )
 		currentScene = 0;
@@ -25,7 +25,7 @@ var nextScene = function () {
 	loadScene(currentScene);
 };
 
-var previousScene = function () {
+previousScene = function () {
 	currentScene = currentScene -1;
 	if( currentScene < 0 )
 		currentScene = scenes.length -1;
@@ -34,11 +34,11 @@ var previousScene = function () {
 	loadScene(currentScene);
 };
 
-var restartScene = function () {
+restartScene = function () {
 	loadScene( currentScene );
 };
 
-var loadScene = function (sceneIdx)
+loadScene = function (sceneIdx)
 {
 	_winSize = director.getWinSize();
 	winSize = {width:_winSize[0], height:_winSize[1]};
@@ -62,7 +62,7 @@ var loadScene = function (sceneIdx)
 // Base Layer
 //
 
-var BaseLayer = cc.LayerGradient.extend({
+BaseLayer = cc.LayerGradient.extend({
 
     ctor:function () {
                                 
@@ -131,7 +131,7 @@ var BaseLayer = cc.LayerGradient.extend({
 // MainTest
 //
 //------------------------------------------------------------------
-var MainTest = BaseLayer.extend({
+MainTest = BaseLayer.extend({
 
     _menu : null,
 
@@ -139,20 +139,20 @@ var MainTest = BaseLayer.extend({
         this._super();
   
         cc.MenuItemFont.setFontSize(24);
-        var item1 = cc.MenuItemFont.create("Actions: Basic Tests", this, function() { require("javascript-spidermonkey/test-actions.js"); } );
-        var item2 = cc.MenuItemFont.create("Actions: Ease Tests", this, function() { require("javascript-spidermonkey/test-easeactions.js"); } );
-        var item3 = cc.MenuItemFont.create("Actions: Progress Tests", this, function() { require("javascript-spidermonkey/test-actionsprogress.js"); } );
-        var item4 = cc.MenuItemFont.create("Chipmunk Tests", this, function() { require("javascript-spidermonkey/test-chipmunk.js"); } );
-        var item5 = cc.MenuItemFont.create("Effects Tests", this, function() { require("javascript-spidermonkey/test-effects.js"); } );
-        var item6 = cc.MenuItemFont.create("Label Tests", this, function() { require("javascript-spidermonkey/test-label.js"); } );
-        var item7 = cc.MenuItemFont.create("Menu Tests", this, function() { require("javascript-spidermonkey/test-menu.js"); } );
-        var item8 = cc.MenuItemFont.create("Parallax Tests", this, function() { require("javascript-spidermonkey/test-parallax.js"); } );
-        var item9 = cc.MenuItemFont.create("Particle Tests", this, function() { require("javascript-spidermonkey/test-particles.js"); } );
-        var item10 = cc.MenuItemFont.create("RenderTexture Tests", this, function() { require("javascript-spidermonkey/test-rendertexture.js"); } );
-        var item11 = cc.MenuItemFont.create("Sprite Tests", this, function() { require("javascript-spidermonkey/test-sprite.js"); } );
-        var item12 = cc.MenuItemFont.create("Tilemap Tests", this, function() { require("javascript-spidermonkey/test-tilemap.js"); } );
-        var item13 = cc.MenuItemFont.create("CocosDenshion Tests", this, function() { require("javascript-spidermonkey/test-cocosdenshion.js"); } );
-        var item14 = cc.MenuItemFont.create("cocos2d presentation", this, function() { require("javascript-spidermonkey/test-cocos2djs.js"); } );
+        var item1 = cc.MenuItemFont.create("Actions: Basic Tests", this, function() { require("JS/test-actions.js"); } );
+        var item2 = cc.MenuItemFont.create("Actions: Ease Tests", this, function() { require("JS/test-easeactions.js"); } );
+        var item3 = cc.MenuItemFont.create("Actions: Progress Tests", this, function() { require("JS/test-actionsprogress.js"); } );
+        var item4 = cc.MenuItemFont.create("Chipmunk Tests", this, function() { require("JS/test-chipmunk.js"); } );
+        var item5 = cc.MenuItemFont.create("Effects Tests", this, function() { require("JS/test-effects.js"); } );
+        var item6 = cc.MenuItemFont.create("Label Tests", this, function() { require("JS/test-label.js"); } );
+        var item7 = cc.MenuItemFont.create("Menu Tests", this, function() { require("JS/test-menu.js"); } );
+        var item8 = cc.MenuItemFont.create("Parallax Tests", this, function() { require("JS/test-parallax.js"); } );
+        var item9 = cc.MenuItemFont.create("Particle Tests", this, function() { require("JS/test-particles.js"); } );
+        var item10 = cc.MenuItemFont.create("RenderTexture Tests", this, function() { require("JS/test-rendertexture.js"); } );
+        var item11 = cc.MenuItemFont.create("Sprite Tests", this, function() { require("JS/test-sprite.js"); } );
+        var item12 = cc.MenuItemFont.create("Tilemap Tests", this, function() { require("JS/test-tilemap.js"); } );
+        var item13 = cc.MenuItemFont.create("CocosDenshion Tests", this, function() { require("JS/test-cocosdenshion.js"); } );
+        var item14 = cc.MenuItemFont.create("cocos2d presentation", this, function() { require("JS/test-cocos2djs.js"); } );
 
 
         this._menu = cc.Menu.create( item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12, item13, item14 );

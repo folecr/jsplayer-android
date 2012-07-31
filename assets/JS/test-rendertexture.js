@@ -6,13 +6,13 @@
 // Javascript + cocos2d actions tests
 //
 
-require("javascript-spidermonkey/helperx.js");
+require("JS/helper.js");
 
-var director = cc.Director.getInstance();
-var _winSize = director.getWinSize();
-var winSize = {width:_winSize[0], height:_winSize[1]};
-var centerPos = cc.p( winSize.width/2, winSize.height/2 );
-var spriteFrameCache = cc.SpriteFrameCache.getInstance();
+director = cc.Director.getInstance();
+_winSize = director.getWinSize();
+winSize = {width:_winSize[0], height:_winSize[1]};
+centerPos = cc.p( winSize.width/2, winSize.height/2 );
+spriteFrameCache = cc.SpriteFrameCache.getInstance();
 
 var scenes = [];
 var currentScene = 0;
@@ -131,8 +131,8 @@ var BaseLayer = cc.LayerGradient.extend({
         var item1 = cc.MenuItemImage.create("b1.png", "b2.png", this, this.backCallback);
         var item2 = cc.MenuItemImage.create("r1.png", "r2.png", this, this.restartCallback);
         var item3 = cc.MenuItemImage.create("f1.png", "f2.png", this, this.nextCallback);
-        var item4 = cc.MenuItemFont.create("back", this, function() { require("javascript-spidermonkey/main.js"); } );
-        // item4.setFontSize( 22 );
+        var item4 = cc.MenuItemFont.create("back", this, function() { require("JS/main.js"); } );
+        item4.setFontSize( 22 );
 
         var menu = cc.Menu.create(item1, item2, item3, item4 );
 
@@ -166,8 +166,8 @@ var RenderTextureSave = BaseLayer.extend({
         else if( platform.substring(0,6) == 'mobile' )
             this.setTouchEnabled( true );
 
-        this._brush = cc.Sprite.create("fire.png");
-        this._brush.retain();
+		this._brush = new cc.Sprite(); this._brush.initWithFile("fire.png");
+//        this._brush.retain();
 
         this._brush.setColor( cc.RED );
         this._brush.setOpacity( 20 );
@@ -192,7 +192,7 @@ var RenderTextureSave = BaseLayer.extend({
     },
 
     onExit:function() {
-        this._brush.release();
+//        this._brush.release();
     },
 
     saveCB:function(sender) {
@@ -277,7 +277,7 @@ function run()
     if( runningScene == null )
         director.runWithScene( scene );
     else
-        director.replaceScene( cc.TransitionFade.create(0.5, scene, cc.c3(0, 0, 0)) );
+        director.replaceScene( cc.TransitionFade.create(0.5, scene ) );
 }
 
 run();
