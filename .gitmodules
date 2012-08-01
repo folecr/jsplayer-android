@@ -4,3 +4,6 @@
 [submodule "submodules/mozilla-prebuilt"]
 	path = submodules/mozilla-prebuilt
 	url = git@github.com:folecr/mozilla-prebuilt.git
+[submodule "submodules/cxx-generator"]
+	path = submodules/cxx-generator
+	url = git://github.com/funkaster/cxx-generator.git
