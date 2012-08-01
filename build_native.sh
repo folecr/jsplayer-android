@@ -60,7 +60,7 @@ if [ -z "${MOZILLA_ROOT+aaa}" ]; then
 fi
 
 if [ -z "${CXX_GENERATOR_ROOT+aaa}" ]; then
-    CXX_GENERATOR_ROOT="$PWD/submodules/cocos2d-x/js/cxx-generator"
+    CXX_GENERATOR_ROOT="$PWD/submodules/cxx-generator"
 fi
 
 if [ -z "${COCOS2DX_ROOT+aaa}" ]; then
