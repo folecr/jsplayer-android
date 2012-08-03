@@ -4,7 +4,6 @@
 #include <platform/android/jni/JniHelper.h>
 
 using namespace cocos2d;
-using namespace cocos2d::extension;
 
 extern "C"
 {
