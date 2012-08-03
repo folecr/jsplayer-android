@@ -15,6 +15,10 @@ namespace jsbindings {
         return VERSION.c_str();
     }
 
+    void sc_finalize(JSFreeOp *freeOp, JSObject *obj) {
+        return;
+    }
+
     // The class of the global object.
     static JSClass global_class =
         {"global",
@@ -26,7 +30,7 @@ namespace jsbindings {
          JS_EnumerateStub,
          JS_ResolveStub,
          JS_ConvertStub,
-         JS_FinalizeStub,
+         sc_finalize,
          JSCLASS_NO_OPTIONAL_MEMBERS};
 
     // The error reporter callback.
