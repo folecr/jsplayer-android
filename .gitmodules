@@ -7,3 +7,6 @@
 [submodule "submodules/cxx-generator"]
 	path = submodules/cxx-generator
 	url = git://github.com/folecr/cxx-generator.git
+[submodule "submodules/cocos2d-js-test"]
+	path = submodules/cocos2d-js-test
+	url = git@github.com:folecr/cocos2d-js-test.git
