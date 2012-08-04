@@ -67,8 +67,13 @@ if [ -z "${COCOS2DX_ROOT+aaa}" ]; then
     COCOS2DX_ROOT="$PWD/submodules/cocos2d-x"
 fi
 
+if [ -z "${JS_APP_ROOT+aaa}" ]; then
+    COCOS2DX_ROOT="$PWD/submodules/cocos2d-js-test"
+fi
+
 echo "CLANG_ROOT: $CLANG_ROOT"
 echo "NDK_ROOT: $NDK_ROOT"
+echo "JS_APP_ROOT: $JS_APP_ROOT"
 echo "APP_ROOT: $APP_ROOT"
 echo "MOZILLA_ROOT: $MOZILLA_ROOT"
 echo "CXX_GENERATOR_ROOT: $CXX_GENERATOR_ROOT"
@@ -123,6 +128,25 @@ DYLD_LIBRARY_PATH=${CLANG_ROOT}/lib $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.
 popd
 pwd
 set +x
+
+# Remove assets ...
+if [ -d "$APP_ANDROID_ROOT/assets" ]; then
+    rm -rf $APP_ANDROID_ROOT/assets
+fi
+
+mkdir $APP_ANDROID_ROOT/assets
+
+# ... copy contents from the JS app
+for file in $JS_APP_ROOT/*
+do
+if [ -d "$file" ]; then
+    cp -rf $file $APP_ANDROID_ROOT/assets
+fi
+
+if [ -f "$file" ]; then
+    cp $file $APP_ANDROID_ROOT/assets
+fi
+done
 
 # build
 echo "Building native code..."
