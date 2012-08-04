@@ -6,4 +6,4 @@
 	url = git@github.com:folecr/mozilla-prebuilt.git
 [submodule "submodules/cxx-generator"]
 	path = submodules/cxx-generator
-	url = git://github.com/funkaster/cxx-generator.git
+	url = git://github.com/folecr/cxx-generator.git
