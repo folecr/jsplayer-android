@@ -90,7 +90,7 @@ set -x
 pwd
 pushd $PWD
 cd ${CXX_GENERATOR_ROOT}
-DYLD_LIBRARY_PATH=${CLANG_ROOT}/lib $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${APP_ANDROID_ROOT}/test.ini -s test -o ${APP_ANDROID_ROOT}/jni/simple_test_bindings
+LD_LIBRARY_PATH=${CLANG_ROOT}/lib $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${APP_ANDROID_ROOT}/test.ini -s test -o ${APP_ANDROID_ROOT}/jni/simple_test_bindings
 popd
 pwd
 set +x
