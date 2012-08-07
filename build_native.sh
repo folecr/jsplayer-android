@@ -85,14 +85,8 @@ fi
 
 # Generate bindings for simpletest
 echo "Generating bindings..."
-echo "change directory to the generator to run it..."
 set -x
-pwd
-pushd $PWD
-cd ${CXX_GENERATOR_ROOT}
 LD_LIBRARY_PATH=${CLANG_ROOT}/lib $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${APP_ANDROID_ROOT}/test.ini -s test -o ${APP_ANDROID_ROOT}/jni/simple_test_bindings
-popd
-pwd
 set +x
 
 # build
