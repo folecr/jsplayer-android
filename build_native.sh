@@ -63,11 +63,16 @@ if [ -z "${CXX_GENERATOR_ROOT+aaa}" ]; then
     CXX_GENERATOR_ROOT="$PWD/submodules/cxx-generator"
 fi
 
+if [ -z "${COCOS2DX_ROOT+aaa}" ]; then
+    COCOS2DX_ROOT="$PWD/submodules/cocos2d-x"
+fi
+
 echo "CLANG_ROOT: $CLANG_ROOT"
 echo "NDK_ROOT: $NDK_ROOT"
 echo "APP_ROOT: $APP_ROOT"
 echo "MOZILLA_ROOT: $MOZILLA_ROOT"
 echo "CXX_GENERATOR_ROOT: $CXX_GENERATOR_ROOT"
+echo "COCOS2DX_ROOT: $COCOS2DX_ROOT"
 echo "PYTHON_BIN: $PYTHON_BIN"
 
 # Currently we only have the android app
@@ -92,5 +97,5 @@ set +x
 # build
 echo "Building native code..."
 $NDK_ROOT/ndk-build -C $APP_ANDROID_ROOT $DEBUG_OPTIONS $VERBOSE_OPTIONS\
-    NDK_MODULE_PATH=${APP_ANDROID_ROOT}/jni:${MOZILLA_ROOT}:${CXX_GENERATOR_ROOT}
+    NDK_MODULE_PATH=${APP_ANDROID_ROOT}/jni:${MOZILLA_ROOT}:${CXX_GENERATOR_ROOT}:${COCOS2DX_ROOT}:${COCOS2DX_ROOT}/cocos2dx/platform/third_party/android/prebuilt
 echo "... Building native code : Done."
