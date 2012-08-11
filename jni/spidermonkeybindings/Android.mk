@@ -2,9 +2,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := jsbindings
+LOCAL_MODULE := spidermonkeybindings
 
-LOCAL_SRC_FILES := jsbindings.cpp \
+LOCAL_SRC_FILES := spidermonkeybindings.cpp \
                    JNI_spidermonkey_bindings.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)
@@ -19,4 +19,3 @@ LOCAL_LDLIBS += -llog
 include $(BUILD_STATIC_LIBRARY)
 
 $(call import-module,spidermonkey/android)
-

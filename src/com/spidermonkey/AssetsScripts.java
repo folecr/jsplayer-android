@@ -1,4 +1,4 @@
-package com.example.spidermonkey.hellojs;
+package com.spidermonkey;
 
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import spidermonkey.Bindings;
-
 /**
  * A list where the data for the list
  * comes from an array of strings.
@@ -22,7 +20,7 @@ import spidermonkey.Bindings;
  * "assets/js" folder
  */
 public class AssetsScripts extends ListActivity {
-    static private final String LOGTAG = "AssetsScripts";
+    static private final String LOGTAG = AssetsScripts.class.getCanonicalName();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.example.spidermonkey.hellojs;
+package com.spidermonkey;
 
 import android.app.Activity;
 import android.content.res.AssetManager;
@@ -9,10 +9,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import spidermonkey.Bindings;
-
-public class HelloJS extends Activity {
-    static private final String LOGTAG = "HelloJS";
+public class JSPlayer extends Activity {
+    static private final String LOGTAG = JSPlayer.class.getCanonicalName();
 
     /** Called when the activity is first created. */
     @Override
@@ -47,6 +45,6 @@ public class HelloJS extends Activity {
     }
 
     static {
-        System.loadLibrary("mozillaplayer");
+        System.loadLibrary("spidermonkeyplayer");
     }
 }

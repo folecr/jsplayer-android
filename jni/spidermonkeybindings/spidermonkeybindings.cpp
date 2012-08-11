@@ -1,12 +1,12 @@
-#include "jsbindings.h"
+#include "spidermonkeybindings.h"
 #include <string>
 #include <android/log.h>
 #include <jsapi.h>
 //#include <autogentestbindings.hpp>
 
-namespace jsbindings {
+namespace spidermonkeybindings {
 
-#define  LOG_TAG    "jsbindings.cpp"
+#define  LOG_TAG    "spidermonkeybindings.cpp"
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 
     static const std::string VERSION = "Unknown Version";
@@ -57,7 +57,7 @@ namespace jsbindings {
 
         JS_SetOptions(cx, JSOPTION_VAROBJFIX);
         JS_SetVersion(cx, JSVERSION_LATEST);
-        JS_SetErrorReporter(cx, jsbindings::reportError);
+        JS_SetErrorReporter(cx, spidermonkeybindings::reportError);
 
         /* Create the global object in a new compartment. */
         JSObject *global =

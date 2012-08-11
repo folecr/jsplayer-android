@@ -1,10 +1,10 @@
-package spidermonkey;
+package com.spidermonkey;
 
 import android.content.res.AssetManager;
 import android.util.Log;
 
 public class Bindings {
-    static private final String LOGTAG = "org.spidermonkey.Bindings";
+    static private final String LOGTAG = Bindings.class.getCanonicalName();
 
     public static StringBuilder getLibVersions() {
         StringBuilder content = new StringBuilder();

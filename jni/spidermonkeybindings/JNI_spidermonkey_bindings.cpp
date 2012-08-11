@@ -7,7 +7,7 @@
 
 #include <jsapi.h>
 
-#include <jsbindings.h>
+#include <spidermonkeybindings.h>
 #include <JNI_spidermonkey_bindings.h>
 
 namespace JNI_spidermonkey_bindings {
@@ -33,7 +33,7 @@ namespace JNI_spidermonkey_bindings {
     Java_spidermonkey_bindings_getBindingsVersion (JNIEnv* env,
                                                    jobject clazz) {
         LOGD("Java_spidermonkey_bindings_getBindingsVersion");
-        const char* version_c_charbuf = jsbindings::getBindingsVersion();
+        const char* version_c_charbuf = spidermonkeybindings::getBindingsVersion();
         return (env->NewStringUTF(version_c_charbuf));
     }
 
@@ -41,7 +41,7 @@ namespace JNI_spidermonkey_bindings {
     Java_spidermonkey_bindings_bindingsDiagnostics (JNIEnv* env,
                                                     jobject clazz) {
         LOGD("Java_spidermonkey_bindings_bindingsDiagnostics");
-        jsbindings::bindingsDiagnostics();
+        spidermonkeybindings::bindingsDiagnostics();
     }
 
     JNIEXPORT void JNICALL
@@ -94,7 +94,7 @@ namespace JNI_spidermonkey_bindings {
         AAsset_close(asset);
 
         // run this in SpiderMonkey
-        jsbindings::runJS((char*) buf);
+        spidermonkeybindings::runJS((char*) buf);
 
         env->ReleaseStringUTFChars(java_relativepath, relativepath);
     }
@@ -109,7 +109,7 @@ namespace JNI_spidermonkey_bindings {
 
     // Register methods for spidermonkey.Bindings
     void registernatives(JNIEnv* env) {
-        jclass bindings_class = env->FindClass("spidermonkey/Bindings");
+        jclass bindings_class = env->FindClass("com/spidermonkey/Bindings");
         env->RegisterNatives(bindings_class,
                              bindings_methods,
                              sizeof(bindings_methods)/sizeof(bindings_methods[0]));
