@@ -2,7 +2,7 @@
 #include <string>
 #include <android/log.h>
 #include <jsapi.h>
-#include <autogentestbindings.hpp>
+//#include <autogentestbindings.hpp>
 
 namespace jsbindings {
 
@@ -25,9 +25,7 @@ namespace jsbindings {
          JS_StrictPropertyStub,
          JS_EnumerateStub,
          JS_ResolveStub,
-         JS_ConvertStub,
-         JS_FinalizeStub,
-         JSCLASS_NO_OPTIONAL_MEMBERS};
+         JS_ConvertStub};
 
     // The error reporter callback.
     static void reportError(JSContext *cx,
@@ -75,10 +73,6 @@ namespace jsbindings {
             LOGD("(!JS_InitStandardClasses(cx, global))");
             return 1;
         }
-
-        // register dependencies - hack!
-        JSObject *obj = JS_GetGlobalObject(cx);
-        js_register_autogentestbindings_SimpleNativeClass(cx, obj);
 
         const char *filename = NULL;
         int lineno = 0;  

@@ -47,6 +47,6 @@ public class HelloJS extends Activity {
     }
 
     static {
-        System.loadLibrary("game");
+        System.loadLibrary("mozillaplayer");
     }
 }
