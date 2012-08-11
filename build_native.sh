@@ -15,6 +15,20 @@ OPTIONS:
 -d	Build in debug mode
 -v  Turn on verbose output
 -h	this help
+
+Dependencies :
+PYTHON_BIN
+CLANG_ROOT
+NDK_ROOT
+
+Paths to sources (defaults are in ./submodules) :
+COCOS2DX_ROOT
+CXX_GENERATOR_ROOT
+MOZILLA_ROOT
+
+Define this to run the build script from an external directory :
+APP_ROOT
+
 EOF
 }
 
