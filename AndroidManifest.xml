@@ -10,7 +10,7 @@
                  android:icon="@drawable/lizard">
 
         <activity android:name="com.spidermonkey.JSPlayer"
-                  android:label="@string/app_name"
+                  android:label="@string/js_player"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                   android:configChanges="orientation">
             <intent-filter>
@@ -22,6 +22,21 @@
         <activity android:name="com.spidermonkey.AssetsScripts"
                   android:label="@string/assets_js"
                   android:configChanges="orientation" />
+
+        <activity android:name="com.cocosspidermonkey.JSPlayer"
+                  android:label="@string/cocosjs_player"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.cocosspidermonkey.AppsList"
+                  android:label="@string/cocosjs_apps"
+                  android:configChanges="orientation" />
+
     </application>
 
     <supports-screens android:largeScreens="true"

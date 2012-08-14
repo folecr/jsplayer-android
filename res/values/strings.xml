@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">JS Player</string>
+
+    <string name="js_player">JS Player</string>
     <string name="assets_js">assets/js</string>
+
+    <string name="cocosjs_player">CocosJS Player</string>
+    <string name="cocosjs_apps">CocosJS Apps</string>
 </resources>
