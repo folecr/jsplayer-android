@@ -20,10 +20,10 @@ public class JSPlayer extends Activity {
 
         Log.d(LOGTAG, "onCreate");
 
-        setContentView(spidermonkey.hellojs.R.layout.mainmenu);
+        setContentView(com.jsplayer.R.layout.mainmenu);
 
         LinearLayout linearlayout =
-            (LinearLayout) findViewById(spidermonkey.hellojs.R.id.text_content);
+            (LinearLayout) findViewById(com.jsplayer.R.id.text_content);
 
         addVersionStringsToLinearLayout(linearlayout);
     }
