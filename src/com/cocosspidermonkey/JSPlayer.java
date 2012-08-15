@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class JSPlayer extends Activity {
     static private final String LOGTAG = JSPlayer.class.getCanonicalName();
+    static public final String APPS_DIR_NAME = "cocosjs";
 
     /** Called when the activity is first created. */
     @Override
@@ -31,7 +32,7 @@ public class JSPlayer extends Activity {
         TextView tv = new TextView(this);
 
         StringBuilder content = new StringBuilder();
-        content.append("Hello JavaScript, SpiderMonkey, Android!\n\n");
+        content.append("Cocos JS Player\n\n");
         content.append(Bindings.getLibVersions());
 
         tv.setText(content);

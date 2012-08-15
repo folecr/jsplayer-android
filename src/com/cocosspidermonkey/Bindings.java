@@ -1,6 +1,6 @@
 package com.cocosspidermonkey;
 
-import android.content.res.AssetManager;
+// import android.content.res.AssetManager;
 import android.util.Log;
 
 public class Bindings {
@@ -13,31 +13,35 @@ public class Bindings {
             content.append("SpiderMonkey JavaScript VM Version = " + getJSVMVersion() + "\n");
         } catch (Throwable t) {
             Log.d(LOGTAG, "Exception : " + t);
-            content.append("Error obtaining SpiderMonkey JavaScript VM version information.\n");
+            content.append("Error obtaining JavaScript VM version information.\n");
         }
 
         try {
-            content.append("Bindings Version = " + getBindingsVersion() + "\n");
+            content.append("Bindings Version = " + getCocosVersion() + "\n");
         } catch (Throwable t) {
             Log.d(LOGTAG, "Exception : " + t);
-            content.append("Error obtaining SpiderMonkey JavaScript bindings version information.\n");
+            content.append("Error obtaining Cocos version information.\n");
         }
 
         return content;
     }
 
-    public static void executeJS(AssetManager assetmanager,
-                                 String relativePath) {
-        Log.d(LOGTAG, "executeJS assets/" + relativePath);
+    public static void execute(CocosApp app) {
+        Log.d(LOGTAG, "Executing CocosJS app : " + app);
 
-        runJSFromAssets(assetmanager, relativePath);
+        if (app instanceof CocosApp.ExternalApp) {
+            CocosApp.ExternalApp eapp = (CocosApp.ExternalApp) app;
+            runAppFromFileSystem(eapp.root.getAbsolutePath());
+        } else {
+            Log.d(LOGTAG, "CocosJS Bindings can only run apps from the external file system");
+            throw new RuntimeException("CocosJS Bindings can only run apps from the external file system");
+        }
     }
 
     private static native String getJSVMVersion();
-    private static native void   jsvmDiagnostics();
-    private static native void   runJSFromAssets(AssetManager a,
-                                                 String s);
+    // static native void   jsvmDiagnostics();
+    private static native void runAppFromFileSystem(String path);
 
-    private static native String getBindingsVersion();
-    private static native void   bindingsDiagnostics();
+    private static native String getCocosVersion();
+    // private static native void   cocosDiagnostics();
 }
