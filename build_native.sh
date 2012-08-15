@@ -47,6 +47,15 @@ exit 0
 esac
 done
 
+# read user.cfg if it exists and is readable
+
+_CFG_FILE=$(dirname "$0")"/user.cfg"
+if [ -e "$_CFG_FILE" ]
+then
+    [ -r "$_CFG_FILE" ] || die "Fatal Error: $_CFG_FILE exists but is unreadable"
+    . "$_CFG_FILE"
+fi
+
 # paths
 
 if [ -z "${NDK_ROOT+aaa}" ]; then
