@@ -115,9 +115,21 @@ if [[ $verbose ]]; then
 fi
 
 # Generate bindings for simpletest
-echo "Generating bindings..."
+echo "Generating bindings for simpletest..."
 set -x
 LD_LIBRARY_PATH=${CLANG_ROOT}/lib $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${APP_ANDROID_ROOT}/test.ini -s test -o ${APP_ANDROID_ROOT}/jni/simple_test_bindings
+set +x
+
+# Generate bindings for cocosdenshion
+echo "Generating bindings cocosdenshion..."
+set -x
+LD_LIBRARY_PATH=${CLANG_ROOT}/lib $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${APP_ANDROID_ROOT}/cocosdenshion.ini -s cocosdenshion -o ${APP_ANDROID_ROOT}/jni/cocosdenshion_bindings
+set +x
+
+# Generate bindings for cocos2dx
+echo "Generating bindings for cocos2dx..."
+set -x
+LD_LIBRARY_PATH=${CLANG_ROOT}/lib $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${APP_ANDROID_ROOT}/cocos2dx.ini -s cocos2d-x -o ${APP_ANDROID_ROOT}/jni/cocos2dx_bindings
 set +x
 
 # build
