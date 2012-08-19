@@ -47,6 +47,9 @@ exit 0
 esac
 done
 
+# exit this script if any commmand fails
+set -e
+
 # read user.cfg if it exists and is readable
 
 _CFG_FILE=$(dirname "$0")"/user.cfg"
