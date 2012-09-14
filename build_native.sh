@@ -67,6 +67,7 @@ if [ -z "${NDK_ROOT+aaa}" ]; then
 fi
 
 if [ -z "${CLANG_ROOT+aaa}" ]; then
+# ... if CLANG_ROOT is not set, use "$HOME/bin/clang+llvm-3.1"
     CLANG_ROOT="$HOME/bin/clang+llvm-3.1"
 fi
 
@@ -134,6 +135,9 @@ set +x
 
 # build
 echo "Building native code..."
+set -x
 $NDK_ROOT/ndk-build -C $APP_ANDROID_ROOT $DEBUG_OPTIONS $VERBOSE_OPTIONS\
     NDK_MODULE_PATH=${APP_ANDROID_ROOT}/jni:${MOZILLA_ROOT}:${CXX_GENERATOR_ROOT}:${COCOS2DX_ROOT}:${COCOS2DX_ROOT}/cocos2dx/platform/third_party/android/prebuilt
+set +x
+
 echo "... Building native code : Done."
